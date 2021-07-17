@@ -7,7 +7,7 @@ let load = 0
 let interval = setInterval(blurring, 30)
 
 
-bg.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11806.4050521127!2d22.687437271336233!3d42.28703427829703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14aa9c6693c5328f%3A0xcc5e3380f6952464!2sKyustendil%2C%20Bulgaria!5e0!3m2!1sen!2suk!4v1626460746479!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
+bg.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375848.41432212613!2d23.5693218811586!3d42.612259358275026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a8fec1c85bf089%3A0xa01269bf4c10!2sBulgaria!5e0!3m2!1sen!2suk!4v1626550686960!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
 
 currentLink()
 
@@ -21,13 +21,17 @@ function blurring() {
     loadText.innerText = `${load}%`
     loadText.style.opacity = scale(load, 0, 100, 1, 0)
     bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
-    bg.style.opacity = 0.5
+    bg.style.opacity = 0.7
 }
 
 // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
 const scale = (num, in_min, in_max, out_min, out_max) => {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
 }
+
+bg.addEventListener('mouseover', ()=> {
+    bg.style.cursor = 'pointer'
+})
 
 function currentLink() {
     const navLinks = document.querySelectorAll('a')
@@ -56,3 +60,31 @@ function fixedNav() {
         nav.classList.remove('active')
     }
 }
+
+const inputEl = document.querySelectorAll('input')
+const lebleEl = document.querySelectorAll('label')
+
+
+inputEl.forEach(e => {
+    e.addEventListener('click', ()=>{
+        lebleEl.forEach(lable => {
+
+            if(lable.textContent == e.placeholder + ':'  ){   
+                lable.style.color = 'gold'
+            } else if (lable.textContent == 'Message:' ) {
+                const lableMsg = document.getElementById('msg')
+                const textArea = document.querySelector('textarea')
+                textArea.addEventListener('click', ()=> {
+                    lableMsg.style.color = 'gold'
+                    
+                })
+                
+            }else {
+                lable.style.color = '#999'
+            }
+
+        })
+
+        
+    })
+})
