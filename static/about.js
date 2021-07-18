@@ -5,7 +5,7 @@ const carousel = document.querySelector('.carousel')
 const imgs = document.getElementById('imgs')
 const leftBtn = document.getElementById('left')
 const rightBtn = document.getElementById('right')
-console.log(loadText.innerText)
+const body = document.querySelector('body')
 const img = document.querySelectorAll('#imgs img')
 
 let load = 0
@@ -25,6 +25,8 @@ function blurring() {
     carousel.style.display = 'none'
     if (load === 100) {
         carousel.style.display = 'block'
+        body.style.overflowY = 'scroll'
+        
     }
 
 }
