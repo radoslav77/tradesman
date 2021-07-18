@@ -1,6 +1,12 @@
 const loadText = document.querySelector('.loading-text')
 const bg = document.querySelector('.bg')
 const nav = document.querySelector('.nav')
+const carousel = document.querySelector('.carousel')
+const imgs = document.getElementById('imgs')
+const leftBtn = document.getElementById('left')
+const rightBtn = document.getElementById('right')
+console.log(loadText.innerText)
+const img = document.querySelectorAll('#imgs img')
 
 let load = 0
 let interval = setInterval(blurring, 30)
@@ -16,6 +22,11 @@ function blurring() {
     loadText.innerText = `${load}%`
     loadText.style.opacity = scale(load, 0, 100, 1, 0)
     bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+    carousel.style.display = 'none'
+    if (load === 100) {
+        carousel.style.display = 'block'
+    }
+
 }
 
 // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
@@ -50,3 +61,43 @@ function fixedNav() {
         nav.classList.remove('active')
     }
 }
+
+
+
+let idx = 0
+
+let int = setInterval(run, 2000)
+
+function run() {
+    idx++
+
+    changeImage()
+}
+
+function changeImage() {
+    if(idx > img.length - 1) {
+        idx = 0
+    } else if (idx < 0) {
+        idx = img.length - 1 
+    }
+
+    imgs.style.transform = `translateX(${-idx * 500}px)`
+}
+
+function resetInterval() {
+    clearInterval(int)
+    int = setInterval(run, 2000)
+}
+
+rightBtn.addEventListener('click', () => {
+    idx++
+
+    changeImage()
+    resetInterval()
+})
+
+leftBtn.addEventListener('click', () => {
+    idx--
+    changeImage()
+    resetInterval()
+})

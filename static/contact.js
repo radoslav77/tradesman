@@ -1,10 +1,9 @@
 const loadText = document.querySelector('.loading-text')
 const bg = document.querySelector('.bg')
 const nav = document.querySelector('.nav')
-const Bg = document.querySelector('.bg')
 
 let load = 0
-let interval = setInterval(blurring, 30)
+let interval = setInterval(blurring, 10)
 
 
 bg.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375848.41432212613!2d23.5693218811586!3d42.612259358275026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a8fec1c85bf089%3A0xa01269bf4c10!2sBulgaria!5e0!3m2!1sen!2suk!4v1626550686960!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
@@ -29,9 +28,8 @@ const scale = (num, in_min, in_max, out_min, out_max) => {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
 }
 
-bg.addEventListener('mouseover', ()=> {
-    bg.style.cursor = 'pointer'
-})
+
+
 
 function currentLink() {
     const navLinks = document.querySelectorAll('a')
