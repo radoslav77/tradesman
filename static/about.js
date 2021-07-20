@@ -1,6 +1,7 @@
 const loadText = document.querySelector('.loading-text')
 const bg = document.querySelector('.bg')
 const nav = document.querySelector('.nav')
+const carousleWrapper = document.getElementById('panel')
 const carousel = document.querySelector('.carousel')
 const imgs = document.getElementById('imgs')
 const leftBtn = document.getElementById('left')
@@ -22,12 +23,10 @@ function blurring() {
     loadText.innerText = `${load}%`
     loadText.style.opacity = scale(load, 0, 100, 1, 0)
     bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
-    carousel.style.display = 'none'
+    carousleWrapper.style.opacity = scale(load, 100, 0, 1, 0)
     if (load === 100) {
-        carousel.style.display = 'block'
-        body.style.overflowY = 'scroll'
-        
-    }
+       body.style.overflowY = 'scroll'     
+   }
 
 }
 
@@ -102,4 +101,11 @@ leftBtn.addEventListener('click', () => {
     idx--
     changeImage()
     resetInterval()
+})
+
+const slidDiv = document.querySelector('.work-container')
+
+window.addEventListener('click', ()=>{
+    slidDiv.style.transform= `translateX(0%)`
+    console.log(slidDiv)
 })
