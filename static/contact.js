@@ -62,7 +62,6 @@ function fixedNav() {
 const inputEl = document.querySelectorAll('input')
 const lebleEl = document.querySelectorAll('label')
 
-
 inputEl.forEach(e => {
     e.addEventListener('click', ()=>{
         lebleEl.forEach(lable => {
@@ -86,3 +85,10 @@ inputEl.forEach(e => {
         
     })
 })
+
+const name = document.getElementById('name')
+const email = document.getElementById('email')
+const phone = document.getElementById('phone')
+const msg = document.getElementById('msg')
+
+

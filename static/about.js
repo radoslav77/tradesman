@@ -8,7 +8,7 @@ const leftBtn = document.getElementById('left')
 const rightBtn = document.getElementById('right')
 const body = document.querySelector('body')
 const img = document.querySelectorAll('#imgs img')
-
+const slidingCarousel = document.querySelector('.carousel-wrapper')
 
 // blur entering of the page
 let load = 0
@@ -25,7 +25,9 @@ function blurring() {
     loadText.innerText = `${load}%`
     loadText.style.opacity = scale(load, 0, 100, 1, 0)
     bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+    slidingCarousel.style.transform = `translateX(${scale(load, 0, 100, 30, 0)}px)`
     carousleWrapper.style.opacity = scale(load, 100, 0, 1, 0)
+
     if (load === 100) {
         window.addEventListener('mouseover', ()=> {
             body.style.overflowY = 'scroll'    
@@ -112,6 +114,7 @@ leftBtn.addEventListener('click', () => {
 
 // sliding div on the bottum of the page
 const slidDiv = document.querySelector('.work-container')
+
 
 window.addEventListener('scroll', ()=>{
     if(window.scrollY > slidDiv.offsetHeight){

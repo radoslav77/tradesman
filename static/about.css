@@ -16,7 +16,7 @@ body {
 }
 
 .bg {
-  background: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80')
+  background: url('https://www.flooringstores.com/blog/wp-content/uploads/2020/03/Snap-Together-Tile-Flooring-FI-1024x654.jpg')
     no-repeat center center/cover;
   position: absolute;
   top: -30px;
@@ -89,7 +89,7 @@ img {
 }
 
 .carousel-wrapper {
-  transform: translateX(0);
+  transform: translateX(-100%);
   transition: transform 1s ease;
   position: absolute;
 }
