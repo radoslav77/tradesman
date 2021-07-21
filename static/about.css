@@ -137,10 +137,10 @@ img {
   display: flex;
   flex-wrap: wrap;
   position: absolute;
-  bottom: -850px;
+  bottom: -750px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   transform: translateX(110%);
-  transition: transform 0.5s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 
 .card {

@@ -9,6 +9,8 @@ const rightBtn = document.getElementById('right')
 const body = document.querySelector('body')
 const img = document.querySelectorAll('#imgs img')
 
+
+// blur entering of the page
 let load = 0
 let interval = setInterval(blurring, 30)
 
@@ -25,7 +27,10 @@ function blurring() {
     bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
     carousleWrapper.style.opacity = scale(load, 100, 0, 1, 0)
     if (load === 100) {
-       body.style.overflowY = 'scroll'     
+        window.addEventListener('mouseover', ()=> {
+            body.style.overflowY = 'scroll'    
+        })
+        
    }
 
 }
@@ -35,6 +40,7 @@ const scale = (num, in_min, in_max, out_min, out_max) => {
     return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
 }
 
+//change of the currant link on the navbar
 function currentLink() {
     const navLinks = document.querySelectorAll('a')
 
@@ -52,6 +58,7 @@ function currentLink() {
     })
 }
 
+// Navbar 
 window.addEventListener('scroll', fixedNav)
 
 
@@ -64,7 +71,7 @@ function fixedNav() {
 }
 
 
-
+// image carousel 
 let idx = 0
 
 let int = setInterval(run, 2000)
@@ -103,9 +110,17 @@ leftBtn.addEventListener('click', () => {
     resetInterval()
 })
 
+// sliding div on the bottum of the page
 const slidDiv = document.querySelector('.work-container')
 
-window.addEventListener('click', ()=>{
-    slidDiv.style.transform= `translateX(0%)`
-    console.log(slidDiv)
+window.addEventListener('scroll', ()=>{
+    if(window.scrollY > slidDiv.offsetHeight){
+        slidDiv.style.transform= `translateX(0%)`
+        console.log(slidDiv.offsetHeight)
+    } else {
+        slidDiv.style.transform = 'translateX(110%)'
+    }
+ 
+    
 })
+
