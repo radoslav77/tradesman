@@ -161,3 +161,17 @@ img {
 .card .work {
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .carousel {
+    height: 315px;
+    width: 250px;
+  }
+  .buttons-container {
+    z-index: 1;
+  }
+  .card {
+    width: 30%;
+    margin: 5px;
+  }
+}
