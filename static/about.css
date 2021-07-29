@@ -163,6 +163,12 @@ img {
 }
 
 @media screen and (max-width: 600px) {
+  .carousel-wrapper {
+    transform: translateX(-100%);
+    transition: transform 1s ease;
+    position: absolute;
+  }
+
   .carousel {
     height: 315px;
     width: 250px;
@@ -173,5 +179,28 @@ img {
   .card {
     width: 30%;
     margin: 5px;
+  }
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav.responsive {
+    position: relative;
+    flex-direction: column;
+    font-size: 14px;
+    justify-content: left;
+  }
+  .nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav.responsive ul li a {
+    float: none;
+    display: flex;
+  }
+  .nav.responsive ul {
+    display: flex;
+    flex-direction: column;
   }
 }
